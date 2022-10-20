@@ -10,8 +10,8 @@ case "$1" in
   train)
     python3 -c 'import pandas as pd; print(pd.__version__)'
     ;;
-  load)
-    python3 /srv/src/tools/load_data.py -i /srv/data/Uploaded_Content_with_OCR_2022_09_09.csv
+  labelstudio)
+    label-studio
     ;;
   *)
     exec "$@"
