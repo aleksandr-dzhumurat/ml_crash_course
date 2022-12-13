@@ -10,21 +10,39 @@ build: build-network
         -f ${CURRENT_DIR}/Dockerfile \
         -t ds-container:dev ${CURRENT_DIR}
 
-run:
+train:
 	docker run -it --rm --network=ds_network \
 	    -p 8892:8888 \
+		-e CONFIG_PATH="/srv/src/config.yml" \
 	    -v "${CURRENT_DIR}/src:/srv/src" \
 	    -v "${CURRENT_DIR}/data:/srv/data" \
 	    --name ${USER_NAME}_ml_docker \
 	    ds-container:dev train
 
-labelstudio:
+serve:
 	docker run -it --rm --network=ds_network \
+	    -p 5000:5000 \
+		-e CONFIG_PATH="/srv/src/config.yml" \
+	    -v "${CURRENT_DIR}/src:/srv/src" \
+	    -v "${CURRENT_DIR}/data:/srv/data" \
+	    --name ${USER_NAME}_ml_docker \
+	    ds-container:dev serve
+
+labelstudio:
+	docker run -it -d --rm --network=ds_network \
 	    -p 8080:8080 \
 	    -v "${CURRENT_DIR}/src:/srv/src" \
 	    -v "${CURRENT_DIR}/data:/srv/data" \
-	    --name labelstudi_ml_docker \
+	    --name labelstudio_ml_docker \
 	    ds-container:dev labelstudio
+
+notebook:
+	docker run -it -d --rm --network=ds_network \
+	    -p 8888:8888 \
+	    -v "${CURRENT_DIR}/src:/srv/src" \
+	    -v "${CURRENT_DIR}/data:/srv/data" \
+	    --name jupyter_ml \
+	    ds-container:dev notebook
 
 load:
 	sudo docker run -it --rm --network=ds_network \
