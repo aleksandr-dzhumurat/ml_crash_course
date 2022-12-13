@@ -1,0 +1,6 @@
+data_dir: /srv/data
+model_file_name: model.pkl
+sqlite_db_file_name: messages.db
+tf_idf_params:
+  max_df: 0.2
+  min_df: 18
