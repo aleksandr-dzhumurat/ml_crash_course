@@ -1,5 +1,10 @@
-# Введение в MLOps
+# Введение в ML system design
 
+[![ML System design](http://img.youtube.com/vi/h5pPNDz-qUQ/0.jpg)](http://www.youtube.com/watch?v=h5pPNDz-qUQ "ML System design")
+
+[Jupyter Notebook](../src/jupyter_notebooks/lecture_06_ml_system_design_intro.ipynb)
+
+[slides](https://docs.google.com/presentation/d/1IFObAoJ3B-MqxE5Vo0GxCbQvzvPxDAjoVDoPva9oV6w/edit?usp=sharing)
 
 
 ## Шаг 1: среда разработки
