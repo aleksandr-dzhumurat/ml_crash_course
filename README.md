@@ -11,3 +11,5 @@
 [Лекция 4. Обучение без учителя](./slides/lecture_04_unsupervised.md)
 
 [Лекция 5. Рекомендательные системы](./slides/lecture_05_recommender_system.md)
+
+[Лекция 6. ML system design](./slides/lecture_06_mlops_intro.md)
