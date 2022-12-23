@@ -17,6 +17,7 @@ with open(config_path, "r") as f:
 class Config:
     def __init__(self, yml_conf):
         self.data_dir = yml_conf["data_dir"]
+        self.bert_dir = yml_conf["bert_dir"]
         self.db_file = os.path.join(
             yml_conf["data_dir"], yml_conf["sqlite_db_file_name"]
         )
