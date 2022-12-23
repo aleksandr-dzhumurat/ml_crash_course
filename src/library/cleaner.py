@@ -28,7 +28,7 @@ def __clear_str(data: str) -> str:
     return data
 
 
-def clear(data: pd.Series | str) -> pd.Series | str:
+def clear(data):
     """Clean data.
     The function can be used to clean a single string or a series of strings.
 
