@@ -1,6 +1,7 @@
 import os
 import random
 from collections import namedtuple
+from typing import List
 
 import numpy as np
 import pandas as pd
@@ -55,7 +56,7 @@ def _load_tokenizer(model_name: str):
     return tokenizer
 
 
-def _get_tokens(tokenizer: BertTokenizer, texts: list[str], max_seq_len):
+def _get_tokens(tokenizer: BertTokenizer, texts: List[str], max_seq_len):
     return tokenizer.batch_encode_plus(
         texts, max_length=max_seq_len, padding="max_length", truncation=True
     )
