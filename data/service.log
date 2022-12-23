@@ -1,0 +1,9 @@
+2022-12-23 13:56:38,295 num rows for train: 5233
+2022-12-23 13:56:39,030 baseline best_score 0.86106
+2022-12-23 13:56:39,519 msg_len: min=1, max=433
+2022-12-23 13:56:39,519 cleared_msg_len: min=0, max=425
+2022-12-23 13:56:39,522 cleared_msg_len: min=1, max=425
+2022-12-23 13:56:39,524 num rows for train: 5212
+2022-12-23 13:56:39,977 baseline best_score 0.86220
+2022-12-23 13:56:39,981 train_df.shape=(5212, 7), test_df.shape=(1302, 7)
+2022-12-23 14:28:16,911 f1_score: 0.906015037593985
