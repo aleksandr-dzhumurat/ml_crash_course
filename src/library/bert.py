@@ -9,7 +9,7 @@ import torch
 import torch.backends.cudnn
 import torch.nn
 import torch.utils.data
-from sklearn.metrics import classification_report, f1_score
+from sklearn.metrics import f1_score
 from transformers import (BertForSequenceClassification, BertTokenizer,
                           Trainer, TrainingArguments)
 
@@ -106,10 +106,10 @@ def train(df: pd.DataFrame):
     tokens_train = _get_tokens(tokenizer, data.train_text.values, max_seq_len)
     tokens_test = _get_tokens(tokenizer, data.test_text.values, max_seq_len)
 
+    _seed_all(42)
     train_dataset = Data(tokens_train, data.train_labels)
     test_dataset = Data(tokens_test, data.test_labels)
 
-    _seed_all(42)
     training_args = TrainingArguments(
         output_dir=conf.bert_dir + "/results",
         num_train_epochs=3,
@@ -141,5 +141,4 @@ def train(df: pd.DataFrame):
 
     pred = _get_prediction(trainer, test_dataset)
 
-    logger.info("classification_report", classification_report(data.test_labels, pred))
     logger.info("f1_score: %s", f1_score(data.test_labels, pred))
