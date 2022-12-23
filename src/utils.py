@@ -38,6 +38,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(message)s",
     handlers=[logging.FileHandler(conf.log_file), logging.StreamHandler()],
+    force=True,
 )
 logger = logging.getLogger(__name__)
 
