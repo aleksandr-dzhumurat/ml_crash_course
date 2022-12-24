@@ -1,4 +1,5 @@
-data_dir: /srv/data
+data_dir: data
+bert_dir: bert
 model_file_name: model.pkl
 sqlite_db_file_name: messages.db
 tf_idf_params:
