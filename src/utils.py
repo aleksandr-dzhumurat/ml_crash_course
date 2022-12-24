@@ -2,37 +2,52 @@ import logging
 import os
 import sqlite3
 
+import git.repo.base
 import pandas as pd
 import yaml
 
-if os.getenv("CONFIG_PATH") is None:
-    config_path = "config.yml"
-else:
-    config_path = os.environ["CONFIG_PATH"]
-
-with open(config_path, "r") as f:
-    config = yaml.load(f, Loader=yaml.FullLoader)
-
 
 class Config:
-    def __init__(self, yml_conf):
-        self.data_dir = yml_conf["data_dir"]
-        self.bert_dir = yml_conf["bert_dir"]
-        self.db_file = os.path.join(
-            yml_conf["data_dir"], yml_conf["sqlite_db_file_name"]
-        )
-        self.log_file = os.path.join(yml_conf["data_dir"], "service.log")
+    def __init__(self):
+        root = self.__get_root()
+        yml_conf = self.__load_yml_config(self.__get_config_path(root))
+        self.data_dir = os.path.join(root, yml_conf["data_dir"])
+        self.bert_dir = os.path.join(self.data_dir, yml_conf["bert_dir"])
+        self.db_file = os.path.join(self.data_dir, yml_conf["sqlite_db_file_name"])
+        self.log_file = os.path.join(self.data_dir, "service.log")
         self.db_messages_table = "raw_rent_messages"
-        self.raw_data_file = os.path.join(
-            yml_conf["data_dir"], "labeled_data_corpus.csv"
-        )
-        self.model_path = os.path.join(
-            yml_conf["data_dir"], yml_conf["model_file_name"]
-        )
+        self.raw_data_file = os.path.join(self.data_dir, "labeled_data_corpus.csv")
+        self.model_path = os.path.join(self.data_dir, yml_conf["model_file_name"])
         self.tf_idf_params = yml_conf["tf_idf_params"]
 
+    @staticmethod
+    def __get_root():
+        if os.getenv("ROOT") is None:
+            root = str(
+                git.repo.base.Repo(".", search_parent_directories=True).working_tree_dir
+            )
+            if root is None:
+                raise ValueError("Could not find git repo root")
+        else:
+            root = os.environ["ROOT"]
+        return root
 
-conf = Config(config)
+    @staticmethod
+    def __get_config_path(root: str):
+        if os.getenv("CONFIG_PATH") is None:
+            config_path = os.path.join(root, "src/config.yml")
+        else:
+            config_path = os.environ["CONFIG_PATH"]
+        return config_path
+
+    @staticmethod
+    def __load_yml_config(config_path: str):
+        with open(config_path, "r") as f:
+            config = yaml.load(f, Loader=yaml.FullLoader)
+        return config
+
+
+conf = Config()
 
 logging.basicConfig(
     level=logging.INFO,
