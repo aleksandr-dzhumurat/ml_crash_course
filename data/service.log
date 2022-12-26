@@ -1,0 +1,16 @@
+2022-12-26 14:13:01,307 num rows for train: 5233
+2022-12-26 14:13:02,283 LogisticRegression best_score 0.86106
+2022-12-26 14:13:05,344 RandomForestClassifier best_score 0.87795
+2022-12-26 14:16:27,149 table raw_rent_messages created
+2022-12-26 14:16:27,447 current rows in table: 6542
+2022-12-26 14:16:35,248 App initialized
+2022-12-26 14:16:35,328 ^[[31m^[[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production W> * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2022-12-26 14:16:35,328 ^[[33mPress CTRL+C to quit^[[0m
+2022-12-26 14:17:09,460 172.18.0.1 - - [26/Dec/2022 14:17:09] "GET /messages HTTP/1.1" 200 -
+2022-12-26 14:17:20,020 172.18.0.1 - - [26/Dec/2022 14:17:20] "GET /messages HTTP/1.1" 200 -
+2022-12-26 14:17:37,444 172.18.0.1 - - [26/Dec/2022 14:17:37] "GET /messages HTTP/1.1" 200 -
+2022-12-26 14:18:27,407 172.18.0.1 - - [26/Dec/2022 14:18:27] "GET /messages/3143 HTTP/1.1" 200 -
+2022-12-26 14:18:45,657 172.18.0.1 - - [26/Dec/2022 14:18:45] "GET /messages/6008 HTTP/1.1" 200 -
+2022-12-26 14:18:58,472 172.18.0.1 - - [26/Dec/2022 14:18:58] "GET /feed/ HTTP/1.1" 200 -

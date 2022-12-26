@@ -7,7 +7,9 @@ Train model
 import os
 from typing import Dict
 
+import pickle
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
@@ -29,7 +31,7 @@ if __name__ == '__main__':
 
     X_test = test_df['msg'].values
     y_true = test_df['label']
-    # fit 
+    # fit
     vectorizer = TfidfVectorizer(**conf.tf_idf_params).fit(X_train)
     X_train_csr = vectorizer.transform(X_train)
     lr = LogisticRegression().fit(X_train_csr, y_train)
@@ -38,12 +40,19 @@ if __name__ == '__main__':
     y_pred = lr.predict(X_test_csr)
     cur_score = f1_score(y_true, y_pred)
 
-    logger.info('best_score %.5f', cur_score)
+    logger.info('LogisticRegression best_score %.5f', cur_score)
 
     # ------ YOUR CODE HERE ----------- #
     # train better model
 
-    # safe better model
+    rf = RandomForestClassifier().fit(X_train_csr, y_train)
+    y_pred = rf.predict(X_test_csr)
+    cur_score = f1_score(y_true, y_pred)
+    logger.info('RandomForestClassifier best_score %.5f', cur_score)
 
-    model_path = conf.model_path
+    # save trained model
+
+    pickle.dump(rf, open(conf.model_path, 'wb'))
+    pickle.dump(vectorizer, open(conf.vec_model_path, 'wb'))
+
     # --------------------------------- #

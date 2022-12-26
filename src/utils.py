@@ -22,6 +22,7 @@ class Config:
         self.db_messages_table = "raw_rent_messages"
         self.raw_data_file = os.path.join(yml_conf["data_dir"], "labeled_data_corpus.csv")
         self.model_path = os.path.join(yml_conf["data_dir"], yml_conf["model_file_name"])
+        self.vec_model_path = os.path.join(yml_conf["data_dir"], yml_conf["vec_model_file_name"])
         self.tf_idf_params = yml_conf["tf_idf_params"]
 
 
@@ -41,7 +42,7 @@ class DataBase:
     def __init__(self, config):
         self.conn = sqlite3.connect(config.db_file, check_same_thread=False)
         self.conf = config
-    
+
     def run_sql(self, sql_str):
         with self.conn as con:
             res = con.execute(sql_str).fetchall()
@@ -72,7 +73,7 @@ class MessagesDB(DataBase):
         # logger.info(self.run_sql(f"""SELECT sql FROM sqlite_master WHERE name='{self.conf.db_messages_table}';"""))
         logger.info('current rows in table: %d', num_rows)
 
-    
+
     def read_message(self, msg_id: int):
         msg = {'id': None, 'txt': None}
         sql_str = f"""SELECT msg_id, msg FROM {self.conf.db_messages_table} WHERE msg_id = {msg_id}"""
@@ -82,8 +83,8 @@ class MessagesDB(DataBase):
             msg = {'id': msg_id, 'txt': msg_raw[1]}
 
         return msg
-    
-    def get_messages_ids(self):
-        res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT 10000")]
+
+    def get_messages_ids(self, limit=1000):
+        res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT {limit}")]
 
         return res
