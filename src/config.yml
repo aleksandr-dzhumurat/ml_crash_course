@@ -1,6 +1,7 @@
 data_dir: data
 bert_dir: bert
 model_file_name: model.pkl
+hub_fine_tune_model: afaikiac/Cyprus-Limassol-Renting
 sqlite_db_file_name: messages.db
 tf_idf_params:
   max_df: 0.2

@@ -13,6 +13,7 @@ build: build-network
 train:
 	docker run -it --rm --network=ds_network \
 	    -p 8892:8888 \
+		-e ROOT="/srv" \
 		-e CONFIG_PATH="/srv/src/config.yml" \
 	    -v "${CURRENT_DIR}/src:/srv/src" \
 	    -v "${CURRENT_DIR}/data:/srv/data" \
@@ -22,6 +23,8 @@ train:
 serve:
 	docker run -it --rm --network=ds_network \
 	    -p 5000:5000 \
+		-e GIT_PYTHON_REFRESH="quiet" \
+		-e ROOT="/srv" \
 		-e CONFIG_PATH="/srv/src/config.yml" \
 	    -v "${CURRENT_DIR}/src:/srv/src" \
 	    -v "${CURRENT_DIR}/data:/srv/data" \
