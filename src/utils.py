@@ -3,6 +3,8 @@ import os
 import sqlite3
 
 import pandas as pd
+import texthero as th
+from nltk.corpus import stopwords
 
 import yaml
 
@@ -84,7 +86,20 @@ class MessagesDB(DataBase):
 
         return msg
 
-    def get_messages_ids(self, limit=1000):
-        res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT {limit}")]
+    def get_messages_ids(self, db_limit=1000):
+        res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT {db_limit}")]
 
         return res
+
+
+def preprocess(msgs):
+    proc_msgs = pd.Series(msgs).dropna()
+    proc_msgs = proc_msgs.astype(str).str.lower()
+
+    proc_msgs = th.remove_digits(proc_msgs)
+    proc_msgs = th.remove_punctuation(proc_msgs)
+    proc_msgs = th.remove_stopwords(proc_msgs)
+    proc_msgs = th.remove_stopwords(proc_msgs, stopwords.words("russian"))
+    proc_msgs = th.remove_whitespace(proc_msgs)
+
+    return proc_msgs.values

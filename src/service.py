@@ -11,7 +11,7 @@ import numpy as np
 from flask import Flask, render_template, request
 from flask_restful import Resource, Api, reqparse
 
-from src.utils import conf, logger, MessagesDB
+from src.utils import conf, logger, MessagesDB, preprocess
 
 db = MessagesDB(conf)
 db.init_db()
@@ -38,7 +38,7 @@ def predict_label(identifier):
     # ------ YOUR CODE HERE ----------- #
     # model predict single label
 
-    msg_csr = vec_model.transform([msg['txt']])
+    msg_csr = vec_model.transform(preprocess(np.array([msg['txt']])))
     predicted_label = model.predict(msg_csr)[0]
 
     # --------------------------------- #
@@ -55,7 +55,7 @@ def feed():
     msg_ids = db.get_messages_ids()
     for i in msg_ids:
         msg = db.read_message(i)
-        msg_csr = vec_model.transform([msg['txt']])
+        msg_csr = vec_model.transform(preprocess(np.array([msg['txt']])))
         predicted_proba = model.predict_proba(msg_csr)[0][0]
         scored_msgs.append((predicted_proba, msg))
     scored_msgs.sort(key=lambda x: x[0])
