@@ -18,6 +18,7 @@ class Config:
         self.db_messages_table = "raw_rent_messages"
         self.raw_data_file = os.path.join(self.data_dir, "labeled_data_corpus.csv")
         self.model_path = os.path.join(self.data_dir, yml_conf["model_file_name"])
+        self.hub_fine_tune_model = yml_conf["hub_fine_tune_model"]
         self.tf_idf_params = yml_conf["tf_idf_params"]
 
     @staticmethod
