@@ -2,6 +2,8 @@
 Web-service with API
 """
 import os
+import re
+import sys
 import unicodedata
 
 import numpy as np
@@ -9,7 +11,7 @@ from flask import Flask, render_template, request
 from flask_restful import Api, Resource, reqparse
 from transformers import BertForSequenceClassification, BertTokenizer, pipeline
 
-# from library.cleaner import clear
+from src.library.cleaner import clear
 from src.utils import MessagesDB, conf, logger
 
 db = MessagesDB(conf)
@@ -35,33 +37,50 @@ pipe = load_pipe(conf.hub_fine_tune_model)
 def pridict_labell(identifier):
     msg = db.read_message(msg_id=int(identifier))
     # model predict single label
-    if not msg:
+    if msg is None:
+        logger.info("message %s not found", identifier)
+        return render_template("index.html", txt="message not found")
+    elif msg["txt"] is None:
         logger.info("message %s not found", identifier)
         return render_template("index.html", txt="message not found")
     else:
-        pred = pipe(msg["txt"])
+        txt = clear(msg["txt"])
+        if txt == "":
+            return render_template(
+                "page.html", id=identifier, txt=msg["txt"], label="garbage msg"
+            )
+        pred = pipe(txt)
         if not pred:
             logger.info("can't predict label for msg %s", identifier)
             return render_template("index.html", txt="can't predict label")
 
-        predicted_label = pred
-        return render_template(
-            "page.html", id=identifier, txt=msg["txt"], label=predicted_label
-        )
+        return render_template("page.html", id=identifier, txt=msg["txt"], label=pred)
 
 
 @app.route("/feed/")
 def feed():
     limit = request.args.get("limit", 10)
     limit = int(limit)
+    logger.info("limit %s", limit)
     # rank all messages and predict
 
-    msgs = db.get_messages_ids(limit)
+    msg_ids = db.get_messages_ids()
+    recs = []
 
-    recs = [
-        {"msg_id": 1, "msg_txt": "example_txt_1"},
-        {"msg_id": 2, "msg_txt": "example_txt_2"},
-    ]
+    for i in np.random.choice(msg_ids, size=limit, replace=False):
+        msg = db.read_message(msg_id=i)
+        txt = clear(msg["txt"])
+        if txt == "":
+            msg_label = [{"label": "LABEL_0", "score": 1.0}]
+            recs.append({"msg_id": i, "msg_txt": msg["txt"], "msg_label": msg_label})
+        else:
+            pred = pipe(txt)
+            recs.append({"msg_id": i, "msg_txt": msg["txt"], "msg_label": pred})
+
+    recs.sort(
+        key=lambda x: (x["msg_label"][0]["label"], x["msg_label"][0]["score"]),
+        reverse=True,
+    )
     return render_template("feed.html", recs=recs)
 
 
