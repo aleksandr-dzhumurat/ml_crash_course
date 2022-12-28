@@ -13,7 +13,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
 from utils import conf, logger
-
+import pickle
+from sklearn.ensemble import ExtraTreesClassifier
 
 if __name__ == '__main__':
     input_file = conf.raw_data_file
@@ -42,8 +43,19 @@ if __name__ == '__main__':
 
     # ------ YOUR CODE HERE ----------- #
     # train better model
+    vectorizer = TfidfVectorizer(max_df=0.2,min_df=14).fit(X_train)
+    X_train_csr = vectorizer.transform(X_train)
+    model = ExtraTreesClassifier(n_estimators=20, max_depth=None,min_samples_split=2, random_state=0).fit(X_train_csr, y_train)
+
+    X_test_csr = vectorizer.transform(X_test)
+    y_pred = model.predict(X_test_csr)
+    cur_score = f1_score(y_true, y_pred)
+
+    logger.info('Mine best_score %.5f', cur_score)
 
     # safe better model
-
+    
     model_path = conf.model_path
+    pickle.dump([model,vectorizer], open(model_path,'wb'))
+    #pickle.dump(vectorizer, open(vectorizer_path,'wb'))
     # --------------------------------- #
