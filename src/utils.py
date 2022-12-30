@@ -87,3 +87,7 @@ class MessagesDB(DataBase):
         res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT 10000")]
 
         return res
+    def get_all_messages(self):
+        res = self.run_sql(f"SELECT * FROM {self.conf.db_messages_table} LIMIT 10000")
+
+        return res
