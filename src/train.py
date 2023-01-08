@@ -5,11 +5,12 @@ Train model
 """
 
 import os
-from typing import Dict
+import pickle
 
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
 from sklearn.metrics import f1_score
 
 from utils import conf, logger
@@ -29,7 +30,7 @@ if __name__ == '__main__':
 
     X_test = test_df['msg'].values
     y_true = test_df['label']
-    # fit 
+    # fit
     vectorizer = TfidfVectorizer(**conf.tf_idf_params).fit(X_train)
     X_train_csr = vectorizer.transform(X_train)
     lr = LogisticRegression().fit(X_train_csr, y_train)
@@ -41,9 +42,16 @@ if __name__ == '__main__':
     logger.info('best_score %.5f', cur_score)
 
     # ------ YOUR CODE HERE ----------- #
-    # train better model
+    svc = SVC(probability=True).fit(X_train_csr, y_train)
+    y_pred = svc.predict(X_test_csr)
+    svc_score = f1_score(y_true, y_pred)
 
-    # safe better model
+    logger.info('our model best_score %.5f', svc_score)
 
-    model_path = conf.model_path
+    # save better model
+    with open(conf.vectorizer_path, 'wb') as f:
+        pickle.dump(vectorizer, f)
+    with open(conf.model_path, 'wb') as f:
+        pickle.dump(svc, f)
+
     # --------------------------------- #

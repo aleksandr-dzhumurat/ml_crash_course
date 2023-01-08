@@ -1,12 +1,36 @@
 <html>
+
 <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <title>Feed</title>
 </head>
+
 <body>
-
-{% for rec in recs %}
-    {% include 'feed_block.html' %}
-{% endfor %}
-
+    <div class="m-auto mt-20 max-w-screen-lg">
+        <table
+            class="border-separate table-fixed w-full border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+            <thead class="bg-slate-50 dark:bg-slate-700">
+                <tr>
+                    <th
+                        class="w-1/6 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">
+                        ID</th>
+                    <th
+                        class="w-1/6 border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">
+                        Prob</th>
+                    <th
+                        class="border border-slate-300 dark:border-slate-600 font-semibold p-4 text-slate-900 dark:text-slate-200 text-left">
+                        Text</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rec in recs %}
+                {% include 'feed_block.html' %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
