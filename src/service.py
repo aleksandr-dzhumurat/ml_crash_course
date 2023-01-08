@@ -5,7 +5,7 @@ Web-service with API
 """
 import os
 import unicodedata
-
+import pickle
 
 import numpy as np
 from flask import Flask, render_template, request
@@ -13,32 +13,39 @@ from flask_restful import Resource, Api, reqparse
 
 from src.utils import conf, logger, MessagesDB
 
-db = MessagesDB(conf)
-db.init_db()
 
-def load_model(model_path):
-    # ------ YOUR CODE HERE ----------- #
-    # load trained model
+def load_model():
+    with open(conf.model_path, 'rb') as f:
+        return pickle.load(f)
 
-    # --------------------------------- #
-    return None
+
+def load_vectorizer():
+    with open(conf.vectorizer_path, 'rb') as f:
+        return pickle.load(f)
 
 
 app = Flask(__name__)
 api = Api(app)
-model = load_model(conf.model_path)
+model = load_model()
+vectorizer = load_vectorizer()
+
+db = MessagesDB(conf)
+db.init_db(model, vectorizer)
 
 
 @app.route('/messages/<string:identifier>')
 def pridict_labell(identifier):
     msg = db.read_message(msg_id=int(identifier))
+    text = msg['txt']
     # ------ YOUR CODE HERE ----------- #
     # model predict single label
 
-    predicted_label = 'Error: Model not loaded'
+    csr = vectorizer.transform([text])
+    predicted_label = model.predict(csr)[0]
 
     # --------------------------------- #
-    return render_template('page.html', id=identifier, txt=msg['txt'], label=predicted_label)
+    return render_template('page.html', id=identifier, txt=text, label=predicted_label)
+
 
 @app.route('/feed/')
 def feed():
@@ -47,14 +54,11 @@ def feed():
     # ------ YOUR CODE HERE ----------- #
     # rank all messages and predict
 
-    predicted_label = 'Error: Model not loaded'
+    messages = db.messages(limit)
 
     # --------------------------------- #
-    recs = [
-        {'msg_id': 1, 'msg_txt': 'example_txt_1'},
-        {'msg_id': 2, 'msg_txt': 'example_txt_2'}
-    ]
-    return render_template('feed.html', recs=recs)
+    return render_template('feed.html', recs=messages)
+
 
 class Messages(Resource):
     def __init__(self):
@@ -66,9 +70,11 @@ class Messages(Resource):
         parser.add_argument('limit', type=int, default=10, location='args')
         args = parser.parse_args()
         try:
-            resp = [int(i) for i in np.random.choice(self.msg_ids, size=args.limit, replace=False)]
+            resp = [int(i) for i in np.random.choice(
+                self.msg_ids, size=args.limit, replace=False)]
         except ValueError as e:
-            resp = 'Error: Cannot take a larger sample than %d' % len(self.msg_ids)
+            resp = 'Error: Cannot take a larger sample than %d' % len(
+                self.msg_ids)
         return {'msg_ids': resp}
 
 
