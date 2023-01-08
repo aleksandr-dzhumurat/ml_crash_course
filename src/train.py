@@ -5,7 +5,13 @@ Train model
 """
 
 import os
-from typing import Dict
+
+import pandas as pd
+from sklearn.svm import SVC
+from sklearn.metrics import f1_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, BaggingClassifier, StackingClassifier, AdaBoostClassifier
 
 import pickle
 import pandas as pd
@@ -57,8 +63,18 @@ if __name__ == '__main__':
     cur_score = f1_score(y_true, y_pred)
     logger.info('GradientBoostingClassifier best_score %.5f', cur_score)
 
+    ests = [('rf', RandomForestClassifier(random_state=SEED)),
+            ('gb', GradientBoostingClassifier(max_depth=20, random_state=SEED)),
+            ('ad', AdaBoostClassifier(random_state=SEED)),
+            ('sv', SVC(random_state=SEED))]
+    bc = BaggingClassifier(LogisticRegression(random_state=SEED), random_state=SEED)
+    sc = StackingClassifier(estimators=ests, final_estimator=bc).fit(X_train_csr, y_train)
+    y_pred = sc.predict(X_test_csr)
+    cur_score = f1_score(y_true, y_pred)
+    logger.info('StackingClassifier best_score %.5f', cur_score)
+
     # save trained model
-    pickle.dump(gb, open(conf.model_path, 'wb'))
+    pickle.dump(sc, open(conf.model_path, 'wb'))
     pickle.dump(vectorizer, open(conf.vec_model_path, 'wb'))
 
     # --------------------------------- #

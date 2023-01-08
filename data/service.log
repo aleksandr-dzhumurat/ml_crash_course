@@ -14,3 +14,8 @@
 2022-12-26 14:18:27,407 172.18.0.1 - - [26/Dec/2022 14:18:27] "GET /messages/3143 HTTP/1.1" 200 -
 2022-12-26 14:18:45,657 172.18.0.1 - - [26/Dec/2022 14:18:45] "GET /messages/6008 HTTP/1.1" 200 -
 2022-12-26 14:18:58,472 172.18.0.1 - - [26/Dec/2022 14:18:58] "GET /feed/ HTTP/1.1" 200 -
+2023-01-08 23:37:08,825 num rows for train: 5233
+2023-01-08 23:37:14,016 LogisticRegression best_score 0.85328
+2023-01-08 23:37:17,225 RandomForestClassifier best_score 0.86111
+2023-01-08 23:37:41,118 GradientBoostingClassifier best_score 0.87719
+2023-01-08 23:42:34,892 StackingClassifier best_score 0.90038
