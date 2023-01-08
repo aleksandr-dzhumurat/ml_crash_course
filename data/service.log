@@ -1,0 +1,686 @@
+2022-12-28 15:26:53,724 num rows for train: 5233
+2022-12-28 15:26:54,089 best_score 0.86106
+2022-12-28 15:27:11,305 table raw_rent_messages created
+2022-12-28 15:27:11,386 data loaded to raw_rent_messages
+2022-12-28 15:27:11,388 current rows in table: 6542
+2022-12-28 15:27:53,963 table raw_rent_messages created
+2022-12-28 15:27:53,965 current rows in table: 6542
+2022-12-28 15:28:42,865 table raw_rent_messages created
+2022-12-28 15:28:42,868 current rows in table: 6542
+2022-12-28 15:28:43,208 App initialized
+2022-12-28 15:28:43,212 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:28:43,213 [33mPress CTRL+C to quit[0m
+2022-12-28 15:28:57,807 172.18.0.1 - - [28/Dec/2022 15:28:57] "[33mGET / HTTP/1.1[0m" 404 -
+2022-12-28 15:28:57,892 172.18.0.1 - - [28/Dec/2022 15:28:57] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-12-28 15:29:05,500 172.18.0.1 - - [28/Dec/2022 15:29:05] "[33mGET / HTTP/1.1[0m" 404 -
+2022-12-28 15:29:05,580 172.18.0.1 - - [28/Dec/2022 15:29:05] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-12-28 15:29:18,363 172.18.0.1 - - [28/Dec/2022 15:29:18] "GET /messages HTTP/1.1" 200 -
+2022-12-28 15:29:26,542 Exception on /messages/1 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 39, in pridict_labell
+    vectorized=vectorizer.transform(msg['txt'])
+NameError: name 'vectorizer' is not defined
+2022-12-28 15:29:26,543 172.18.0.1 - - [28/Dec/2022 15:29:26] "[35m[1mGET /messages/1 HTTP/1.1[0m" 500 -
+2022-12-28 15:32:55,039 table raw_rent_messages created
+2022-12-28 15:32:55,042 current rows in table: 6542
+2022-12-28 15:32:55,382 App initialized
+2022-12-28 15:32:55,387 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:32:55,387 [33mPress CTRL+C to quit[0m
+2022-12-28 15:32:59,895 Exception on /messages/1 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 40, in pridict_labell
+    predicted_label = model.predict(msg['txt'])
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 447, in predict
+    scores = self.decision_function(X)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 429, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/base.py", line 577, in _validate_data
+    X = check_array(X, input_name="X", **check_params)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=#сниму  комнату в лимассоле или недалеко от него. с начала августа. любые предложения в лс.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2022-12-28 15:32:59,897 172.18.0.1 - - [28/Dec/2022 15:32:59] "[35m[1mGET /messages/1 HTTP/1.1[0m" 500 -
+2022-12-28 15:40:20,840 num rows for train: 5233
+2022-12-28 15:40:21,206 best_score 0.86106
+2022-12-28 15:40:27,727 table raw_rent_messages created
+2022-12-28 15:40:27,729 current rows in table: 6542
+2022-12-28 15:40:28,073 App initialized
+2022-12-28 15:40:28,078 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:40:28,078 [33mPress CTRL+C to quit[0m
+2022-12-28 15:40:35,767 Exception on /messages/1 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 40, in pridict_labell
+    predicted_label = model.predict(msg['txt'])
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 447, in predict
+    scores = self.decision_function(X)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/linear_model/_base.py", line 429, in decision_function
+    X = self._validate_data(X, accept_sparse="csr", reset=False)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/base.py", line 577, in _validate_data
+    X = check_array(X, input_name="X", **check_params)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/utils/validation.py", line 871, in check_array
+    raise ValueError(
+ValueError: Expected 2D array, got scalar array instead:
+array=#сниму  комнату в лимассоле или недалеко от него. с начала августа. любые предложения в лс.
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1) if it contains a single sample.
+2022-12-28 15:40:35,768 172.18.0.1 - - [28/Dec/2022 15:40:35] "[35m[1mGET /messages/1 HTTP/1.1[0m" 500 -
+2022-12-28 15:41:25,979 table raw_rent_messages created
+2022-12-28 15:41:25,981 current rows in table: 6542
+2022-12-28 15:41:26,323 App initialized
+2022-12-28 15:41:26,327 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:41:26,327 [33mPress CTRL+C to quit[0m
+2022-12-28 15:41:29,455 Exception on /messages/1 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 39, in pridict_labell
+    vectorized=vectorizer.transform(msg['txt'])
+  File "/usr/local/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 2103, in transform
+    X = super().transform(raw_documents)
+  File "/usr/local/lib/python3.8/site-packages/sklearn/feature_extraction/text.py", line 1381, in transform
+    raise ValueError(
+ValueError: Iterable over raw text documents expected, string object received.
+2022-12-28 15:41:29,456 172.18.0.1 - - [28/Dec/2022 15:41:29] "[35m[1mGET /messages/1 HTTP/1.1[0m" 500 -
+2022-12-28 15:42:50,680 table raw_rent_messages created
+2022-12-28 15:42:50,683 current rows in table: 6542
+2022-12-28 15:42:51,027 App initialized
+2022-12-28 15:42:51,031 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:42:51,031 [33mPress CTRL+C to quit[0m
+2022-12-28 15:42:52,355 172.18.0.1 - - [28/Dec/2022 15:42:52] "GET /messages/1 HTTP/1.1" 200 -
+2022-12-28 15:43:03,151 172.18.0.1 - - [28/Dec/2022 15:43:03] "GET /messages/2 HTTP/1.1" 200 -
+2022-12-28 15:43:07,416 172.18.0.1 - - [28/Dec/2022 15:43:07] "GET /messages/3 HTTP/1.1" 200 -
+2022-12-28 15:43:21,665 172.18.0.1 - - [28/Dec/2022 15:43:21] "GET /messages/1028 HTTP/1.1" 200 -
+2022-12-28 15:43:25,001 172.18.0.1 - - [28/Dec/2022 15:43:25] "GET /messages/10 HTTP/1.1" 200 -
+2022-12-28 15:43:32,613 172.18.0.1 - - [28/Dec/2022 15:43:32] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 15:46:03,005 table raw_rent_messages created
+2022-12-28 15:46:03,007 current rows in table: 6542
+2022-12-28 15:46:03,354 App initialized
+2022-12-28 15:46:03,358 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:46:03,358 [33mPress CTRL+C to quit[0m
+2022-12-28 15:46:05,404 172.18.0.1 - - [28/Dec/2022 15:46:05] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 15:49:00,576 table raw_rent_messages created
+2022-12-28 15:49:00,578 current rows in table: 6542
+2022-12-28 15:49:00,939 App initialized
+2022-12-28 15:49:00,943 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:49:00,943 [33mPress CTRL+C to quit[0m
+2022-12-28 15:49:03,084 Exception on /messages/5000 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 40, in pridict_labell
+    predicted_score = model.predict(vectorized)[1]
+IndexError: index 1 is out of bounds for axis 0 with size 1
+2022-12-28 15:49:03,085 172.18.0.1 - - [28/Dec/2022 15:49:03] "[35m[1mGET /messages/5000 HTTP/1.1[0m" 500 -
+2022-12-28 15:49:21,813 table raw_rent_messages created
+2022-12-28 15:49:21,815 current rows in table: 6542
+2022-12-28 15:49:22,155 App initialized
+2022-12-28 15:49:22,159 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:49:22,159 [33mPress CTRL+C to quit[0m
+2022-12-28 15:49:22,698 Exception on /messages/5000 [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 40, in pridict_labell
+    predicted_score = model.predict_proba(vectorized)[1]
+IndexError: index 1 is out of bounds for axis 0 with size 1
+2022-12-28 15:49:22,699 172.18.0.1 - - [28/Dec/2022 15:49:22] "[35m[1mGET /messages/5000 HTTP/1.1[0m" 500 -
+2022-12-28 15:49:43,958 table raw_rent_messages created
+2022-12-28 15:49:43,961 current rows in table: 6542
+2022-12-28 15:49:44,303 App initialized
+2022-12-28 15:49:44,308 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:49:44,308 [33mPress CTRL+C to quit[0m
+2022-12-28 15:49:44,981 172.18.0.1 - - [28/Dec/2022 15:49:44] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 15:50:03,863 table raw_rent_messages created
+2022-12-28 15:50:03,865 current rows in table: 6542
+2022-12-28 15:50:04,228 App initialized
+2022-12-28 15:50:04,232 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 15:50:04,232 [33mPress CTRL+C to quit[0m
+2022-12-28 15:50:05,052 172.18.0.1 - - [28/Dec/2022 15:50:05] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 15:50:10,271 172.18.0.1 - - [28/Dec/2022 15:50:10] "GET /messages/10 HTTP/1.1" 200 -
+2022-12-28 15:50:22,217 172.18.0.1 - - [28/Dec/2022 15:50:22] "GET /messages/66 HTTP/1.1" 200 -
+2022-12-28 15:50:29,594 172.18.0.1 - - [28/Dec/2022 15:50:29] "GET /messages/243 HTTP/1.1" 200 -
+2022-12-28 15:50:35,266 172.18.0.1 - - [28/Dec/2022 15:50:35] "GET /messages/2111 HTTP/1.1" 200 -
+2022-12-28 15:50:38,306 172.18.0.1 - - [28/Dec/2022 15:50:38] "GET /messages/21 HTTP/1.1" 200 -
+2022-12-28 15:50:41,750 172.18.0.1 - - [28/Dec/2022 15:50:41] "GET /messages/5001 HTTP/1.1" 200 -
+2022-12-28 16:02:02,579 table raw_rent_messages created
+2022-12-28 16:02:02,581 current rows in table: 6542
+2022-12-28 16:02:02,939 App initialized
+2022-12-28 16:02:02,943 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:02:02,943 [33mPress CTRL+C to quit[0m
+2022-12-28 16:02:07,172 172.18.0.1 - - [28/Dec/2022 16:02:07] "GET /messages/5001 HTTP/1.1" 200 -
+2022-12-28 16:02:09,785 172.18.0.1 - - [28/Dec/2022 16:02:09] "[33mGET /messages/ HTTP/1.1[0m" 404 -
+2022-12-28 16:02:12,568 172.18.0.1 - - [28/Dec/2022 16:02:12] "GET /messages HTTP/1.1" 200 -
+2022-12-28 16:02:14,540 172.18.0.1 - - [28/Dec/2022 16:02:14] "GET /messages HTTP/1.1" 200 -
+2022-12-28 16:06:46,326 table raw_rent_messages created
+2022-12-28 16:06:46,328 current rows in table: 6542
+2022-12-28 16:06:46,673 App initialized
+2022-12-28 16:06:46,678 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:06:46,678 [33mPress CTRL+C to quit[0m
+2022-12-28 16:06:50,173 172.18.0.1 - - [28/Dec/2022 16:06:50] "[32mGET /feed HTTP/1.1[0m" 308 -
+2022-12-28 16:06:50,243 172.18.0.1 - - [28/Dec/2022 16:06:50] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:09:46,879 table raw_rent_messages created
+2022-12-28 16:09:46,881 current rows in table: 6542
+2022-12-28 16:09:47,221 App initialized
+2022-12-28 16:09:47,225 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:09:47,225 [33mPress CTRL+C to quit[0m
+2022-12-28 16:09:53,384 172.18.0.1 - - [28/Dec/2022 16:09:53] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:13:52,498 table raw_rent_messages created
+2022-12-28 16:13:52,500 current rows in table: 6542
+2022-12-28 16:13:52,841 App initialized
+2022-12-28 16:13:52,845 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:13:52,845 [33mPress CTRL+C to quit[0m
+2022-12-28 16:13:58,565 172.18.0.1 - - [28/Dec/2022 16:13:58] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:14:15,926 172.18.0.1 - - [28/Dec/2022 16:14:15] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:16:01,133 table raw_rent_messages created
+2022-12-28 16:16:01,136 current rows in table: 6542
+2022-12-28 16:16:01,484 App initialized
+2022-12-28 16:16:01,488 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:16:01,488 [33mPress CTRL+C to quit[0m
+2022-12-28 16:16:08,829 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 59, in feed
+    [sorted_msgs for _, sorted_msgs in sorted(zip(predicted_score, all_msgs))]
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+2022-12-28 16:16:08,830 172.18.0.1 - - [28/Dec/2022 16:16:08] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:18:00,260 table raw_rent_messages created
+2022-12-28 16:18:00,262 current rows in table: 6542
+2022-12-28 16:18:00,605 App initialized
+2022-12-28 16:18:00,610 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:18:00,610 [33mPress CTRL+C to quit[0m
+2022-12-28 16:18:06,488 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 59, in feed
+    [sorted_msgs for _, sorted_msgs in sorted(zip(predicted_score, all_msgs))]
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2022-12-28 16:18:06,489 172.18.0.1 - - [28/Dec/2022 16:18:06] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:18:34,139 table raw_rent_messages created
+2022-12-28 16:18:34,142 current rows in table: 6542
+2022-12-28 16:18:34,480 App initialized
+2022-12-28 16:18:34,484 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:18:34,484 [33mPress CTRL+C to quit[0m
+2022-12-28 16:18:42,519 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 60, in feed
+    [sorted_msgs for _, sorted_msgs in sorted(zip(predicted_score, all_msgs))]
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2022-12-28 16:18:42,520 172.18.0.1 - - [28/Dec/2022 16:18:42] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:20:11,201 table raw_rent_messages created
+2022-12-28 16:20:11,203 current rows in table: 6542
+2022-12-28 16:20:11,541 App initialized
+2022-12-28 16:20:11,546 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:20:11,546 [33mPress CTRL+C to quit[0m
+2022-12-28 16:20:21,235 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 60, in feed
+    [sorted_msgs for (_, sorted_msgs) in sorted(zip(predicted_score, all_msgs))]
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2022-12-28 16:20:21,237 172.18.0.1 - - [28/Dec/2022 16:20:21] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:21:18,220 table raw_rent_messages created
+2022-12-28 16:21:18,222 current rows in table: 6542
+2022-12-28 16:21:18,572 App initialized
+2022-12-28 16:21:18,576 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:21:18,576 [33mPress CTRL+C to quit[0m
+2022-12-28 16:21:26,534 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 60, in feed
+    print(sorted(zip(predicted_score, all_msgs)))
+TypeError: '<' not supported between instances of 'dict' and 'dict'
+2022-12-28 16:21:26,535 172.18.0.1 - - [28/Dec/2022 16:21:26] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:25:31,975 table raw_rent_messages created
+2022-12-28 16:25:31,977 current rows in table: 6542
+2022-12-28 16:25:32,316 App initialized
+2022-12-28 16:25:32,320 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:25:32,320 [33mPress CTRL+C to quit[0m
+2022-12-28 16:25:41,398 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 60, in feed
+    predicted_score = numpy.array(predicted_score)
+NameError: name 'numpy' is not defined
+2022-12-28 16:25:41,399 172.18.0.1 - - [28/Dec/2022 16:25:41] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:25:58,286 table raw_rent_messages created
+2022-12-28 16:25:58,288 current rows in table: 6542
+2022-12-28 16:25:58,632 App initialized
+2022-12-28 16:25:58,636 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:25:58,636 [33mPress CTRL+C to quit[0m
+2022-12-28 16:26:04,473 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 63, in feed
+    sorted_msgs = all_msgs[inds]
+TypeError: only integer scalar arrays can be converted to a scalar index
+2022-12-28 16:26:04,474 172.18.0.1 - - [28/Dec/2022 16:26:04] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:26:42,651 table raw_rent_messages created
+2022-12-28 16:26:42,653 current rows in table: 6542
+2022-12-28 16:26:43,017 App initialized
+2022-12-28 16:26:43,021 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:26:43,021 [33mPress CTRL+C to quit[0m
+2022-12-28 16:26:50,164 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 64, in feed
+    sorted_msgs = all_msgs[inds]
+TypeError: only integer scalar arrays can be converted to a scalar index
+2022-12-28 16:26:50,167 172.18.0.1 - - [28/Dec/2022 16:26:50] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:26:57,200 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 64, in feed
+    sorted_msgs = all_msgs[inds]
+TypeError: only integer scalar arrays can be converted to a scalar index
+2022-12-28 16:26:57,201 172.18.0.1 - - [28/Dec/2022 16:26:57] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:28:08,350 table raw_rent_messages created
+2022-12-28 16:28:08,353 current rows in table: 6542
+2022-12-28 16:28:08,692 App initialized
+2022-12-28 16:28:08,696 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:28:08,696 [33mPress CTRL+C to quit[0m
+2022-12-28 16:28:16,076 172.18.0.1 - - [28/Dec/2022 16:28:16] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:29:41,545 table raw_rent_messages created
+2022-12-28 16:29:41,547 current rows in table: 6542
+2022-12-28 16:29:41,907 App initialized
+2022-12-28 16:29:41,911 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:29:41,911 [33mPress CTRL+C to quit[0m
+2022-12-28 16:29:48,477 172.18.0.1 - - [28/Dec/2022 16:29:48] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:35:58,111 table raw_rent_messages created
+2022-12-28 16:35:58,113 current rows in table: 6542
+2022-12-28 16:35:58,119 App initialized
+2022-12-28 16:35:58,123 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:35:58,123 [33mPress CTRL+C to quit[0m
+2022-12-28 16:36:06,560 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 56, in feed
+    vectorized=vectorizer.transform([msg['msg_txt'] for msg in all_msgs])
+NameError: name 'vectorizer' is not defined
+2022-12-28 16:36:06,561 172.18.0.1 - - [28/Dec/2022 16:36:06] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-28 16:36:06,649 172.18.0.1 - - [28/Dec/2022 16:36:06] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-12-28 16:41:55,429 table raw_rent_messages created
+2022-12-28 16:41:55,431 current rows in table: 6542
+2022-12-28 16:41:55,773 App initialized
+2022-12-28 16:41:55,777 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:41:55,777 [33mPress CTRL+C to quit[0m
+2022-12-28 16:42:04,860 172.18.0.1 - - [28/Dec/2022 16:42:04] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:42:18,480 172.18.0.1 - - [28/Dec/2022 16:42:18] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:43:39,423 table raw_rent_messages created
+2022-12-28 16:43:39,426 current rows in table: 6542
+2022-12-28 16:43:39,778 App initialized
+2022-12-28 16:43:39,782 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 16:43:39,782 [33mPress CTRL+C to quit[0m
+2022-12-28 16:43:47,505 172.18.0.1 - - [28/Dec/2022 16:43:47] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 16:44:07,992 172.18.0.1 - - [28/Dec/2022 16:44:07] "GET /feed/?limit=100 HTTP/1.1" 200 -
+2022-12-28 16:44:18,257 172.18.0.1 - - [28/Dec/2022 16:44:18] "GET /feed/?limit=10000 HTTP/1.1" 200 -
+2022-12-28 16:44:27,829 172.18.0.1 - - [28/Dec/2022 16:44:27] "GET /feed/?limit=1000000 HTTP/1.1" 200 -
+2022-12-28 17:06:57,833 num rows for train: 5233
+2022-12-28 17:06:58,194 best_score 0.86106
+2022-12-28 17:07:30,211 num rows for train: 5233
+2022-12-28 17:07:30,570 best_score 0.86106
+2022-12-28 17:08:52,621 num rows for train: 5233
+2022-12-28 17:08:54,418 best_score 0.83270
+2022-12-28 17:09:11,655 num rows for train: 5233
+2022-12-28 17:09:26,723 best_score 0.85393
+2022-12-28 17:34:09,604 num rows for train: 5233
+2022-12-28 17:34:27,153 best_score 0.86090
+2022-12-28 17:34:44,410 num rows for train: 5233
+2022-12-28 17:34:46,443 best_score 0.86260
+2022-12-28 18:21:22,943 num rows for train: 5233
+2022-12-28 18:22:13,040 num rows for train: 5233
+2022-12-28 18:22:13,411 best_score 0.85658
+2022-12-28 18:22:29,683 num rows for train: 5233
+2022-12-28 18:22:30,051 best_score 0.85658
+2022-12-28 18:22:30,754 Mine best_score 0.88538
+2022-12-28 18:23:50,404 num rows for train: 5233
+2022-12-28 18:23:50,767 best_score 0.86106
+2022-12-28 18:23:51,470 Mine best_score 0.88538
+2022-12-28 18:24:20,723 table raw_rent_messages created
+2022-12-28 18:24:20,725 current rows in table: 6542
+2022-12-28 18:24:21,086 App initialized
+2022-12-28 18:24:21,090 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 18:24:21,090 [33mPress CTRL+C to quit[0m
+2022-12-28 18:24:30,901 172.18.0.1 - - [28/Dec/2022 18:24:30] "GET /feed/?limit=1000000 HTTP/1.1" 200 -
+2022-12-28 18:25:00,520 172.18.0.1 - - [28/Dec/2022 18:25:00] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 18:30:18,274 table raw_rent_messages created
+2022-12-28 18:30:18,276 current rows in table: 6542
+2022-12-28 18:30:18,643 App initialized
+2022-12-28 18:30:18,647 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 18:30:18,647 [33mPress CTRL+C to quit[0m
+2022-12-28 18:30:26,480 172.18.0.1 - - [28/Dec/2022 18:30:26] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 18:30:32,118 172.18.0.1 - - [28/Dec/2022 18:30:32] "GET /messages HTTP/1.1" 200 -
+2022-12-28 18:30:35,403 172.18.0.1 - - [28/Dec/2022 18:30:35] "GET /messages HTTP/1.1" 200 -
+2022-12-28 18:30:41,770 172.18.0.1 - - [28/Dec/2022 18:30:41] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 18:30:52,536 172.18.0.1 - - [28/Dec/2022 18:30:52] "GET /messages/4 HTTP/1.1" 200 -
+2022-12-28 18:30:55,513 172.18.0.1 - - [28/Dec/2022 18:30:55] "GET /messages/66 HTTP/1.1" 200 -
+2022-12-28 19:12:22,536 num rows for train: 5233
+2022-12-28 19:12:22,900 best_score 0.86106
+2022-12-28 19:12:23,602 Mine best_score 0.88538
+2022-12-28 19:20:37,821 table raw_rent_messages created
+2022-12-28 19:20:37,824 current rows in table: 6542
+2022-12-28 19:20:38,193 App initialized
+2022-12-28 19:20:38,197 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.4:5000
+2022-12-28 19:20:38,197 [33mPress CTRL+C to quit[0m
+2022-12-28 19:20:41,996 172.18.0.1 - - [28/Dec/2022 19:20:41] "GET /messages/66 HTTP/1.1" 200 -
+2022-12-28 19:20:45,262 172.18.0.1 - - [28/Dec/2022 19:20:45] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-28 19:20:48,474 172.18.0.1 - - [28/Dec/2022 19:20:48] "GET /messages HTTP/1.1" 200 -
+2022-12-28 19:20:56,307 172.18.0.1 - - [28/Dec/2022 19:20:56] "GET /feed/ HTTP/1.1" 200 -
+2022-12-28 19:51:29,318 num rows for train: 5233
+2022-12-28 19:51:29,681 best_score 0.86106
+2022-12-28 19:51:30,323 Mine best_score 0.85772
+2022-12-28 19:51:58,533 num rows for train: 5233
+2022-12-28 19:51:58,896 best_score 0.86106
+2022-12-28 19:51:59,520 Mine best_score 0.88933
+2022-12-29 16:41:07,984 num rows for train: 5233
+2022-12-29 16:41:08,361 best_score 0.86106
+2022-12-29 16:41:08,984 Improvement:0.02827
+2022-12-29 16:46:05,542 table raw_rent_messages created
+2022-12-29 16:46:05,546 current rows in table: 6542
+2022-12-29 16:46:05,548 App initialized
+2022-12-29 16:46:05,552 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2022-12-29 16:46:05,552 [33mPress CTRL+C to quit[0m
+2022-12-29 16:46:23,352 172.18.0.1 - - [29/Dec/2022 16:46:23] "[33mGET / HTTP/1.1[0m" 404 -
+2022-12-29 16:46:23,412 172.18.0.1 - - [29/Dec/2022 16:46:23] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-12-29 16:46:28,140 172.18.0.1 - - [29/Dec/2022 16:46:28] "[32mGET /feed HTTP/1.1[0m" 308 -
+2022-12-29 16:46:28,705 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 56, in feed
+    vectorized=vectorizer.transform([msg['msg_txt'] for msg in all_msgs])
+  File "/srv/src/service.py", line 56, in <listcomp>
+    vectorized=vectorizer.transform([msg['msg_txt'] for msg in all_msgs])
+TypeError: tuple indices must be integers or slices, not str
+2022-12-29 16:46:28,709 172.18.0.1 - - [29/Dec/2022 16:46:28] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2022-12-29 16:47:37,159 table raw_rent_messages created
+2022-12-29 16:47:37,161 current rows in table: 6542
+2022-12-29 16:47:37,163 App initialized
+2022-12-29 16:47:37,167 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2022-12-29 16:47:37,167 [33mPress CTRL+C to quit[0m
+2022-12-29 16:47:38,787 172.18.0.1 - - [29/Dec/2022 16:47:38] "GET /feed/ HTTP/1.1" 200 -
+2022-12-30 16:37:43,365 num rows for train: 5233
+2022-12-30 16:37:45,948 best_score 0.86106
+2022-12-30 16:37:49,058 Improvement:0.02827
+2022-12-30 16:38:00,553 table raw_rent_messages created
+2022-12-30 16:38:00,587 current rows in table: 6542
+2022-12-30 16:38:00,614 App initialized
+2022-12-30 16:38:00,657 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2022-12-30 16:38:00,659 [33mPress CTRL+C to quit[0m
+2022-12-30 16:38:12,019 172.18.0.1 - - [30/Dec/2022 16:38:12] "[33mGET / HTTP/1.1[0m" 404 -
+2022-12-30 16:38:17,797 172.18.0.1 - - [30/Dec/2022 16:38:17] "GET /messages HTTP/1.1" 200 -
+2022-12-30 16:38:28,494 172.18.0.1 - - [30/Dec/2022 16:38:28] "GET /messages/5000 HTTP/1.1" 200 -
+2022-12-30 16:38:32,203 172.18.0.1 - - [30/Dec/2022 16:38:32] "GET /messages/5001 HTTP/1.1" 200 -
+2022-12-30 16:38:37,611 172.18.0.1 - - [30/Dec/2022 16:38:37] "GET /messages/5002 HTTP/1.1" 200 -
+2022-12-30 16:38:48,999 172.18.0.1 - - [30/Dec/2022 16:38:48] "GET /feed/ HTTP/1.1" 200 -
+2022-12-30 16:39:11,146 172.18.0.1 - - [30/Dec/2022 16:39:11] "GET /feed/?limit=100 HTTP/1.1" 200 -
+2022-12-30 16:39:16,168 172.18.0.1 - - [30/Dec/2022 16:39:16] "GET /feed/?limit=101 HTTP/1.1" 200 -
+2022-12-30 16:39:24,486 172.18.0.1 - - [30/Dec/2022 16:39:24] "GET /feed/?limit=200 HTTP/1.1" 200 -
+2023-01-08 18:35:26,176 num rows for train: 5233
+2023-01-08 18:35:31,629 best_score 0.86106
+2023-01-08 18:36:30,766 Mine best_score 0.90000
+2023-01-08 18:36:30,767 Mine best_score diff 0.03894
+2023-01-08 18:36:53,375 table raw_rent_messages created
+2023-01-08 18:36:53,392 current rows in table: 6542
+2023-01-08 18:36:53,413 App initialized
+2023-01-08 18:36:53,456 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-08 18:36:53,456 [33mPress CTRL+C to quit[0m
+2023-01-08 18:36:56,500 172.18.0.1 - - [08/Jan/2023 18:36:56] "[33mGET / HTTP/1.1[0m" 404 -
+2023-01-08 18:37:03,444 172.18.0.1 - - [08/Jan/2023 18:37:03] "GET /messages HTTP/1.1" 200 -
+2023-01-08 18:37:18,086 172.18.0.1 - - [08/Jan/2023 18:37:18] "GET /messages/100 HTTP/1.1" 200 -
+2023-01-08 18:37:24,867 172.18.0.1 - - [08/Jan/2023 18:37:24] "GET /messages/1001 HTTP/1.1" 200 -
