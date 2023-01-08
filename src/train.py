@@ -14,8 +14,8 @@ from sklearn.metrics import f1_score
 
 from utils import conf, logger
 import pickle
-from sklearn.ensemble import RandomForestClassifier
-
+from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier, BaggingClassifier, StackingClassifier,AdaBoostClassifier
+from sklearn.svm import SVC
 if __name__ == '__main__':
     input_file = conf.raw_data_file
     if not os.path.exists(input_file):
@@ -45,13 +45,17 @@ if __name__ == '__main__':
     # train better model
     vectorizer = TfidfVectorizer(max_df=0.5,min_df=11).fit(X_train)
     X_train_csr = vectorizer.transform(X_train)
-    model = RandomForestClassifier(n_estimators=20, max_depth=None,min_samples_split=2, random_state=0).fit(X_train_csr, y_train)
+    estimators = [('rf',RandomForestClassifier(n_estimators=20, max_depth=None,min_samples_split=2, random_state=0)),('SVC',SVC(random_state=0))]
 
+    clf = StackingClassifier(estimators=estimators,final_estimator=BaggingClassifier(LogisticRegression(random_state=0),n_estimators=20,random_state=0))
+    
+    model = clf.fit(X_train_csr, y_train)
     X_test_csr = vectorizer.transform(X_test)
     y_pred = model.predict(X_test_csr)
-    mine_score = f1_score(y_true, y_pred)
+    cur_score2 = f1_score(y_true, y_pred)
 
-    logger.info('Improvement:%.5f', mine_score - cur_score)
+    logger.info('Mine best_score %.5f', cur_score2)
+    logger.info('Mine best_score diff %.5f', cur_score2-cur_score)
 
     # safe better model
     

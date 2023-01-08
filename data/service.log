@@ -668,3 +668,19 @@ TypeError: tuple indices must be integers or slices, not str
 2022-12-30 16:39:11,146 172.18.0.1 - - [30/Dec/2022 16:39:11] "GET /feed/?limit=100 HTTP/1.1" 200 -
 2022-12-30 16:39:16,168 172.18.0.1 - - [30/Dec/2022 16:39:16] "GET /feed/?limit=101 HTTP/1.1" 200 -
 2022-12-30 16:39:24,486 172.18.0.1 - - [30/Dec/2022 16:39:24] "GET /feed/?limit=200 HTTP/1.1" 200 -
+2023-01-08 18:35:26,176 num rows for train: 5233
+2023-01-08 18:35:31,629 best_score 0.86106
+2023-01-08 18:36:30,766 Mine best_score 0.90000
+2023-01-08 18:36:30,767 Mine best_score diff 0.03894
+2023-01-08 18:36:53,375 table raw_rent_messages created
+2023-01-08 18:36:53,392 current rows in table: 6542
+2023-01-08 18:36:53,413 App initialized
+2023-01-08 18:36:53,456 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-08 18:36:53,456 [33mPress CTRL+C to quit[0m
+2023-01-08 18:36:56,500 172.18.0.1 - - [08/Jan/2023 18:36:56] "[33mGET / HTTP/1.1[0m" 404 -
+2023-01-08 18:37:03,444 172.18.0.1 - - [08/Jan/2023 18:37:03] "GET /messages HTTP/1.1" 200 -
+2023-01-08 18:37:18,086 172.18.0.1 - - [08/Jan/2023 18:37:18] "GET /messages/100 HTTP/1.1" 200 -
+2023-01-08 18:37:24,867 172.18.0.1 - - [08/Jan/2023 18:37:24] "GET /messages/1001 HTTP/1.1" 200 -
