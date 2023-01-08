@@ -1,0 +1,7 @@
+data_dir: /data
+model_file_name: model.pkl
+vectorizer_name : vectorizer.pkl
+sqlite_db_file_name: messages.db
+tf_idf_params:
+  max_df: 0.17
+  min_df: 4
