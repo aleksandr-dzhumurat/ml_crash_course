@@ -572,32 +572,155 @@ NameError: name 'vectorizer' is not defined
 2022-12-28 18:24:21,090 [33mPress CTRL+C to quit[0m
 2022-12-28 18:24:30,901 172.18.0.1 - - [28/Dec/2022 18:24:30] "GET /feed/?limit=1000000 HTTP/1.1" 200 -
 2022-12-28 18:25:00,520 172.18.0.1 - - [28/Dec/2022 18:25:00] "GET /feed/ HTTP/1.1" 200 -
-2022-12-28 18:30:18,274 table raw_rent_messages created
-2022-12-28 18:30:18,276 current rows in table: 6542
-2022-12-28 18:30:18,643 App initialized
-2022-12-28 18:30:18,647 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+2023-01-08 09:23:59,209 num rows for train: 5233
+2023-01-08 09:23:59,587 best_score 0.86106
+2023-01-08 09:24:50,047 num rows for train: 5233
+2023-01-08 09:24:50,410 best_score 0.86106
+2023-01-08 09:25:02,443 Mine best_score 0.89575
+2023-01-08 09:26:58,084 num rows for train: 5233
+2023-01-08 09:26:58,447 best_score 0.86106
+2023-01-08 09:27:18,038 Mine best_score 0.89575
+2023-01-08 09:27:37,528 num rows for train: 5233
+2023-01-08 09:27:37,890 best_score 0.86106
+2023-01-08 09:27:47,659 Mine best_score 0.89453
+2023-01-08 09:28:33,117 num rows for train: 5233
+2023-01-08 09:28:33,480 best_score 0.86106
+2023-01-08 09:29:00,650 Mine best_score 0.89575
+2023-01-08 09:29:29,043 num rows for train: 5233
+2023-01-08 09:29:29,405 best_score 0.86106
+2023-01-08 09:29:43,227 Mine best_score 0.89147
+2023-01-08 09:37:21,648 num rows for train: 5233
+2023-01-08 09:37:22,011 best_score 0.86106
+2023-01-08 09:37:34,132 Mine best_score 0.89147
+2023-01-08 09:37:52,281 num rows for train: 5233
+2023-01-08 09:37:52,644 best_score 0.86106
+2023-01-08 09:38:05,200 Mine best_score 0.89575
+2023-01-08 09:38:14,064 num rows for train: 5233
+2023-01-08 09:38:14,426 best_score 0.86106
+2023-01-08 09:38:27,412 Mine best_score 0.89320
+2023-01-08 09:39:00,259 num rows for train: 5233
+2023-01-08 09:39:00,623 best_score 0.86106
+2023-01-08 09:39:31,724 num rows for train: 5233
+2023-01-08 09:39:32,088 best_score 0.86106
+2023-01-08 09:39:47,814 Mine best_score 0.88499
+2023-01-08 09:51:17,093 num rows for train: 5233
+2023-01-08 09:51:17,455 best_score 0.86106
+2023-01-08 09:51:48,257 Mine best_score 0.86680
+2023-01-08 09:53:30,806 num rows for train: 5233
+2023-01-08 09:53:31,169 best_score 0.86106
+2023-01-08 09:53:57,076 Mine best_score 0.88583
+2023-01-08 09:54:22,527 num rows for train: 5233
+2023-01-08 09:54:22,891 best_score 0.86106
+2023-01-08 09:54:40,398 Mine best_score 0.89320
+2023-01-08 09:55:01,356 num rows for train: 5233
+2023-01-08 09:55:01,720 best_score 0.86106
+2023-01-08 09:55:18,567 Mine best_score 0.87968
+2023-01-08 09:55:32,770 num rows for train: 5233
+2023-01-08 09:55:33,134 best_score 0.86106
+2023-01-08 09:58:33,166 num rows for train: 5233
+2023-01-08 09:58:33,530 best_score 0.86106
+2023-01-08 09:59:02,232 Mine best_score 0.87179
+2023-01-08 09:59:13,876 num rows for train: 5233
+2023-01-08 09:59:14,239 best_score 0.86106
+2023-01-08 09:59:26,549 Mine best_score 0.86051
+2023-01-08 09:59:38,965 num rows for train: 5233
+2023-01-08 09:59:39,328 best_score 0.86106
+2023-01-08 10:00:10,331 Mine best_score 0.86680
+2023-01-08 10:00:20,620 num rows for train: 5233
+2023-01-08 10:00:21,028 best_score 0.86106
+2023-01-08 10:00:35,239 Mine best_score 0.89062
+2023-01-08 10:00:51,791 num rows for train: 5233
+2023-01-08 10:00:52,156 best_score 0.86106
+2023-01-08 10:01:07,176 Mine best_score 0.89669
+2023-01-08 10:01:32,651 num rows for train: 5233
+2023-01-08 10:01:33,016 best_score 0.86106
+2023-01-08 10:01:47,635 Mine best_score 0.89147
+2023-01-08 10:02:09,358 num rows for train: 5233
+2023-01-08 10:02:09,725 best_score 0.86106
+2023-01-08 10:02:22,363 Mine best_score 0.89749
+2023-01-08 10:04:17,350 num rows for train: 5233
+2023-01-08 10:04:17,713 best_score 0.86106
+2023-01-08 10:04:30,019 Mine best_score 0.89749
+2023-01-08 11:29:44,223 num rows for train: 5233
+2023-01-08 11:29:44,585 best_score 0.86106
+2023-01-08 11:29:56,876 Mine best_score 0.89749
+2023-01-08 11:31:53,381 num rows for train: 5233
+2023-01-08 11:31:53,744 best_score 0.86106
+2023-01-08 11:32:06,078 Mine best_score 0.89749
+2023-01-08 11:33:29,028 num rows for train: 5233
+2023-01-08 11:33:29,424 best_score 0.86106
+2023-01-08 11:33:41,910 Mine best_score 0.89961
+2023-01-08 14:05:50,354 num rows for train: 5233
+2023-01-08 14:05:50,718 best_score 0.86106
+2023-01-08 14:06:03,183 Mine best_score 0.89961
+2023-01-08 14:06:51,877 num rows for train: 5233
+2023-01-08 14:06:52,324 best_score 0.86106
+2023-01-08 14:07:04,870 Mine best_score 0.89961
+2023-01-08 14:07:50,984 num rows for train: 5233
+2023-01-08 14:07:51,346 best_score 0.86106
+2023-01-08 14:08:03,782 Mine best_score 0.89961
+2023-01-08 14:42:30,720 num rows for train: 5233
+2023-01-08 14:42:31,083 best_score 0.86106
+2023-01-08 14:42:43,755 Mine best_score 0.85824
+2023-01-08 14:43:15,890 num rows for train: 5233
+2023-01-08 14:43:16,253 best_score 0.86106
+2023-01-08 14:43:28,670 Mine best_score 0.85714
+2023-01-08 14:44:10,771 num rows for train: 5233
+2023-01-08 14:44:11,131 best_score 0.86106
+2023-01-08 14:44:23,884 Mine best_score 0.85496
+2023-01-08 14:45:45,331 num rows for train: 5233
+2023-01-08 14:45:45,693 best_score 0.86106
+2023-01-08 14:45:58,111 Mine best_score 0.89961
+2023-01-08 14:46:20,461 num rows for train: 5233
+2023-01-08 14:46:20,824 best_score 0.86106
+2023-01-08 14:46:34,186 Mine best_score 0.89575
+2023-01-08 14:48:09,553 num rows for train: 5233
+2023-01-08 14:48:09,916 best_score 0.86106
+2023-01-08 14:48:33,499 Mine best_score 0.89961
+2023-01-08 14:49:16,585 num rows for train: 5233
+2023-01-08 14:49:16,948 best_score 0.86106
+2023-01-08 14:49:29,393 Mine best_score 0.89961
+2023-01-08 14:50:56,673 num rows for train: 5233
+2023-01-08 14:50:57,036 best_score 0.86106
+2023-01-08 14:51:09,528 Mine best_score 0.89961
+2023-01-08 14:51:40,722 num rows for train: 5233
+2023-01-08 14:51:41,087 best_score 0.86106
+2023-01-08 14:51:53,534 Mine best_score 0.67990
+2023-01-08 14:52:33,497 num rows for train: 5233
+2023-01-08 14:52:33,861 best_score 0.86106
+2023-01-08 14:52:46,232 Mine best_score 0.67990
+2023-01-08 14:52:57,914 num rows for train: 5233
+2023-01-08 14:52:58,283 best_score 0.86106
+2023-01-08 14:53:10,715 Mine best_score 0.87221
+2023-01-08 14:53:20,002 num rows for train: 5233
+2023-01-08 14:53:20,366 best_score 0.86106
+2023-01-08 14:53:32,781 Mine best_score 0.87221
+2023-01-08 14:55:06,550 num rows for train: 5233
+2023-01-08 14:55:06,912 best_score 0.86106
+2023-01-08 14:55:19,350 Mine best_score 0.89961
+2023-01-08 14:56:03,955 num rows for train: 5233
+2023-01-08 14:56:04,315 best_score 0.86106
+2023-01-08 14:56:16,775 Mine best_score 0.89888
+2023-01-08 14:57:00,778 num rows for train: 5233
+2023-01-08 14:57:01,143 best_score 0.86106
+2023-01-08 15:00:27,516 num rows for train: 5233
+2023-01-08 15:00:27,880 best_score 0.86106
+2023-01-08 15:00:41,260 Mine best_score 0.90056
+2023-01-08 15:01:06,678 table raw_rent_messages created
+2023-01-08 15:01:06,680 current rows in table: 6542
+2023-01-08 15:01:07,040 App initialized
+2023-01-08 15:01:07,043 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
- * Running on http://172.18.0.4:5000
-2022-12-28 18:30:18,647 [33mPress CTRL+C to quit[0m
-2022-12-28 18:30:26,480 172.18.0.1 - - [28/Dec/2022 18:30:26] "GET /feed/ HTTP/1.1" 200 -
-2022-12-28 18:30:32,118 172.18.0.1 - - [28/Dec/2022 18:30:32] "GET /messages HTTP/1.1" 200 -
-2022-12-28 18:30:35,403 172.18.0.1 - - [28/Dec/2022 18:30:35] "GET /messages HTTP/1.1" 200 -
-2022-12-28 18:30:41,770 172.18.0.1 - - [28/Dec/2022 18:30:41] "GET /messages/5000 HTTP/1.1" 200 -
-2022-12-28 18:30:52,536 172.18.0.1 - - [28/Dec/2022 18:30:52] "GET /messages/4 HTTP/1.1" 200 -
-2022-12-28 18:30:55,513 172.18.0.1 - - [28/Dec/2022 18:30:55] "GET /messages/66 HTTP/1.1" 200 -
-2022-12-28 19:12:22,536 num rows for train: 5233
-2022-12-28 19:12:22,900 best_score 0.86106
-2022-12-28 19:12:23,602 Mine best_score 0.88538
-2022-12-28 19:20:37,821 table raw_rent_messages created
-2022-12-28 19:20:37,824 current rows in table: 6542
-2022-12-28 19:20:38,193 App initialized
-2022-12-28 19:20:38,197 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://172.18.0.4:5000
-2022-12-28 19:20:38,197 [33mPress CTRL+C to quit[0m
-2022-12-28 19:20:41,996 172.18.0.1 - - [28/Dec/2022 19:20:41] "GET /messages/66 HTTP/1.1" 200 -
-2022-12-28 19:20:45,262 172.18.0.1 - - [28/Dec/2022 19:20:45] "GET /messages/5000 HTTP/1.1" 200 -
-2022-12-28 19:20:48,474 172.18.0.1 - - [28/Dec/2022 19:20:48] "GET /messages HTTP/1.1" 200 -
-2022-12-28 19:20:56,307 172.18.0.1 - - [28/Dec/2022 19:20:56] "GET /feed/ HTTP/1.1" 200 -
+ * Running on http://172.18.0.3:5000
+2023-01-08 15:01:07,043 [33mPress CTRL+C to quit[0m
+2023-01-08 15:01:15,215 172.18.0.1 - - [08/Jan/2023 15:01:15] "[33mGET / HTTP/1.1[0m" 404 -
+2023-01-08 15:01:15,262 172.18.0.1 - - [08/Jan/2023 15:01:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-01-08 15:01:40,962 172.18.0.1 - - [08/Jan/2023 15:01:40] "GET /messages HTTP/1.1" 200 -
+2023-01-08 15:01:51,085 172.18.0.1 - - [08/Jan/2023 15:01:51] "[33mGET /id HTTP/1.1[0m" 404 -
+2023-01-08 15:02:21,728 172.18.0.1 - - [08/Jan/2023 15:02:21] "GET /messages/0 HTTP/1.1" 200 -
+2023-01-08 15:02:27,148 172.18.0.1 - - [08/Jan/2023 15:02:27] "[32mGET /feed HTTP/1.1[0m" 308 -
+2023-01-08 15:02:35,822 172.18.0.1 - - [08/Jan/2023 15:02:35] "GET /feed/ HTTP/1.1" 200 -
+2023-01-08 17:37:04,815 num rows for train: 5233
+2023-01-08 17:37:05,188 best_score 0.86106
+2023-01-08 17:37:18,587 Mine best_score 0.90056
