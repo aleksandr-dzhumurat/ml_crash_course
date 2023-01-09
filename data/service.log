@@ -1,0 +1,102 @@
+2022-12-18 19:14:15,921 num rows for train: 5233
+2022-12-18 19:14:16,646 best_score 0.86106
+2023-01-09 19:26:34,718 num rows for train: 5233
+2023-01-09 19:26:35,514 best_score 0.86106
+2023-01-09 19:26:40,942 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 19:26:40,999 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 19:28:48,269 num rows for train: 5233
+2023-01-09 19:28:49,070 best_score 0.86106
+2023-01-09 19:28:53,516 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 19:28:53,588 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 19:31:37,153 num rows for train: 5233
+2023-01-09 19:31:38,010 best_score 0.86106
+2023-01-09 19:31:42,458 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 19:31:42,515 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 19:38:47,813 num rows for train: 5233
+2023-01-09 19:38:48,633 best_score 0.86106
+2023-01-09 19:38:53,162 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 19:38:53,217 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 19:40:29,122 train_f1: 0.95962 f1: 0.91048 accuracy: 0.96409 recall_score:0.90875
+2023-01-09 19:49:50,352 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 19:49:50,408 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 19:49:50,897 num rows for train: 5233
+2023-01-09 19:49:51,690 best_score 0.86106
+2023-01-09 19:51:27,063 train_f1: 0.95962 f1: 0.91048 accuracy: 0.96409 recall_score:0.90875
+2023-01-09 20:05:28,811 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:05:28,870 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:05:29,228 table raw_rent_messages created
+2023-01-09 20:05:29,597 data loaded to raw_rent_messages
+2023-01-09 20:05:29,747 current rows in table: 6542
+2023-01-09 20:05:29,869 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:05:29,930 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:05:31,100 App initialized
+2023-01-09 20:05:31,102 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-09 20:05:31,102 [33mPress CTRL+C to quit[0m
+2023-01-09 20:05:41,114 172.18.0.1 - - [09/Jan/2023 20:05:41] "[33mGET / HTTP/1.1[0m" 404 -
+2023-01-09 20:05:41,361 172.18.0.1 - - [09/Jan/2023 20:05:41] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2023-01-09 20:05:47,140 172.18.0.1 - - [09/Jan/2023 20:05:47] "[33mGET / HTTP/1.1[0m" 404 -
+2023-01-09 20:05:54,370 Exception on /feed/ [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.8/site-packages/flask_restful/__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.8/site-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/srv/src/service.py", line 51, in feed
+    all_msgs = np.array([{'msg_id': i[0], 'msg_txt': i[1]} for i in db.get_all_messages()])
+AttributeError: 'MessagesDB' object has no attribute 'get_all_messages'
+2023-01-09 20:05:54,380 172.18.0.1 - - [09/Jan/2023 20:05:54] "[35m[1mGET /feed/ HTTP/1.1[0m" 500 -
+2023-01-09 20:07:35,840 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:07:35,895 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:07:36,051 table raw_rent_messages created
+2023-01-09 20:07:36,462 current rows in table: 6542
+2023-01-09 20:07:36,596 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:07:36,654 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:07:37,852 App initialized
+2023-01-09 20:07:37,853 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-09 20:07:37,854 [33mPress CTRL+C to quit[0m
+2023-01-09 20:08:33,752 172.18.0.1 - - [09/Jan/2023 20:08:33] "GET /feed/ HTTP/1.1" 200 -
+2023-01-09 20:09:24,824 172.18.0.1 - - [09/Jan/2023 20:09:24] "GET /feed/ HTTP/1.1" 200 -
+2023-01-09 20:10:11,331 172.18.0.1 - - [09/Jan/2023 20:10:11] "GET /messages/6371 HTTP/1.1" 200 -
+2023-01-09 20:10:32,835 172.18.0.1 - - [09/Jan/2023 20:10:32] "GET /messages/1111 HTTP/1.1" 200 -
+2023-01-09 20:10:53,069 172.18.0.1 - - [09/Jan/2023 20:10:53] "GET /messages/5234 HTTP/1.1" 200 -
+2023-01-09 20:11:02,320 172.18.0.1 - - [09/Jan/2023 20:11:02] "GET /messages/1245 HTTP/1.1" 200 -
+2023-01-09 20:12:00,419 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:12:00,478 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:12:00,848 table raw_rent_messages created
+2023-01-09 20:12:01,270 current rows in table: 6542
+2023-01-09 20:12:01,402 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:12:01,460 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:12:02,658 App initialized
+2023-01-09 20:12:02,659 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-09 20:12:02,660 [33mPress CTRL+C to quit[0m
+2023-01-09 20:12:06,173 172.18.0.1 - - [09/Jan/2023 20:12:06] "GET /messages/1028 HTTP/1.1" 200 -
+2023-01-09 20:31:30,580 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:31:30,650 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:31:31,720 num rows for train: 5233
+2023-01-09 20:31:32,563 best_score 0.86106
+2023-01-09 20:33:08,517 Confusion Matrix: [[1023   23]
+ [  24  239]]
+2023-01-09 20:33:08,527 train_f1: 0.95962 f1: 0.91048 accuracy: 0.96409 recall_score:0.90875 AUC_score: 0.94338
+2023-01-09 20:33:41,941 Loading dictionaries from /usr/local/lib/python3.8/site-packages/pymorphy2_dicts_ru/data
+2023-01-09 20:33:41,995 format: 2.4, revision: 417127, updated: 2020-10-11T15:05:51.070345
+2023-01-09 20:33:42,282 num rows for train: 5233
+2023-01-09 20:33:43,038 best_score 0.86106
+2023-01-09 20:35:16,940 Confusion Matrix:
+[[1023   23]
+ [  24  239]]
+2023-01-09 20:35:16,951 train_f1: 0.95962 f1: 0.91048 accuracy: 0.96409 recall_score:0.90875 AUC_score: 0.94338

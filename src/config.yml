@@ -4,3 +4,4 @@ sqlite_db_file_name: messages.db
 tf_idf_params:
   max_df: 0.2
   min_df: 18
+vectorizer_file_name: vectorizer.pkl
