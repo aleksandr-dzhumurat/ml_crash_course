@@ -1,1 +1,1 @@
-![Pipeline](https://drive.google.com/file/d/1yvwe0wqi1Xrvb3Y-_Uyw5MaX66NrCr_B/view?usp=sharing)
+[![Pipeline](https://drive.google.com/file/d/1yvwe0wqi1Xrvb3Y-_Uyw5MaX66NrCr_B/preview)](https://drive.google.com/file/d/1yvwe0wqi1Xrvb3Y-_Uyw5MaX66NrCr_B/view?usp=sharing "Pipeline")
