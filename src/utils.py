@@ -6,6 +6,15 @@ import pandas as pd
 
 import yaml
 
+
+import nltk
+import requests
+import pymorphy2
+
+from pathlib import Path
+from nltk import sent_tokenize, regexp_tokenize
+from nltk.corpus import stopwords
+
 if os.getenv("CONFIG_PATH") is None:
     config_path = "config.yml"
 else:
@@ -23,7 +32,7 @@ class Config:
         self.raw_data_file = os.path.join(yml_conf["data_dir"], "labeled_data_corpus.csv")
         self.model_path = os.path.join(yml_conf["data_dir"], yml_conf["model_file_name"])
         self.tf_idf_params = yml_conf["tf_idf_params"]
-
+        self.vectorizer_path = os.path.join(yml_conf["data_dir"], yml_conf["vectorizer_file_name"])
 
 conf = Config(config)
 
@@ -87,3 +96,49 @@ class MessagesDB(DataBase):
         res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT 10000")]
 
         return res
+
+    def get_all_messages(self):
+        res = self.run_sql(f"SELECT * FROM {self.conf.db_messages_table} LIMIT 10000")
+
+        return res
+
+
+nltk.download('punkt')
+url_stopwords_ru = "https://raw.githubusercontent.com/stopwords-iso/stopwords-ru/master/stopwords-ru.txt"
+
+def get_text(url, encoding='utf-8', to_lower=True):
+    url = str(url)
+    if url.startswith('http'):
+        r = requests.get(url)
+        if not r.ok:
+            r.raise_for_status()
+        return r.text.lower() if to_lower else r.text
+    elif os.path.exists(url):
+        with open(url, encoding=encoding) as f:
+            return f.read().lower() if to_lower else f.read()
+    else:
+        raise Exception('parameter [url] can be either URL or a filename')
+
+morph = pymorphy2.MorphAnalyzer()
+def normalize_tokens(tokens):
+    return [morph.parse(tok)[0].normal_form for tok in tokens]
+
+
+def remove_stopwords(tokens, stopwords=None, min_length=2):
+    if not stopwords:
+        return tokens
+    stopwords = set(stopwords)
+    tokens = [tok
+            for tok in tokens
+            if tok not in stopwords and len(tok) >= min_length]
+    return tokens
+
+stopwords = get_text(url_stopwords_ru).splitlines()
+def tokenize_n_lemmatize(text, regexp=r'(?u)\b\w{4,}\b'):
+    
+    words = [w for sentence in sent_tokenize(text)
+            for w in regexp_tokenize(sentence, regexp)]
+
+    words = remove_stopwords(words, stopwords)
+    words = normalize_tokens(words)
+    return words

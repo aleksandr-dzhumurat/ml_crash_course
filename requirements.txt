@@ -23,3 +23,5 @@ streamlit==1.13.0
 altair==4.2.0
 matplotlib==3.6.0
 jupyter==1.0.0
+nltk
+pymorphy2

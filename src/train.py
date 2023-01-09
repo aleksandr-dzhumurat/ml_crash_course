@@ -10,10 +10,15 @@ from typing import Dict
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import f1_score
+from sklearn.metrics import f1_score, accuracy_score, recall_score, confusion_matrix, roc_auc_score
 
-from utils import conf, logger
+from utils import conf, logger, tokenize_n_lemmatize
 
+import pickle
+
+from sklearn.ensemble import StackingClassifier
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.svm import SVC
 
 if __name__ == '__main__':
     input_file = conf.raw_data_file
@@ -41,9 +46,34 @@ if __name__ == '__main__':
     logger.info('best_score %.5f', cur_score)
 
     # ------ YOUR CODE HERE ----------- #
-    # train better model
+    
+    vectorizer = TfidfVectorizer(tokenizer=tokenize_n_lemmatize).fit(X_train)
+    X_train_csr = vectorizer.transform(X_train)
+    X_test_csr = vectorizer.transform(X_test)
 
-    # safe better model
+    base_models = [('svm', SVC(gamma=0.44, random_state=0)), ('mnb', MultinomialNB(alpha=0.35))]
+    meta_model = LogisticRegression()
+    stacking_model = StackingClassifier(estimators=base_models, 
+                                        final_estimator=meta_model, 
+                                        passthrough=True, 
+                                        cv=2).fit(X_train_csr, y_train)
+    y_train_pred = stacking_model.predict(X_train_csr)
+    y_pred = stacking_model.predict(X_test_csr)
+
+    logger.info('Confusion Matrix:\n%s', str(confusion_matrix(y_true, y_pred)))
+
+    logger.info('train_f1: {:.5f} f1: {:.5f} accuracy: {:.5f} recall_score:{:.5f} AUC_score: {:.5f}'.format( 
+                                f1_score(y_train, y_train_pred),
+                                f1_score(y_true, y_pred),
+                                accuracy_score(y_true, y_pred),
+                                recall_score(y_true, y_pred),
+                                roc_auc_score(y_true, y_pred)))
 
     model_path = conf.model_path
+
+    with open(conf.vectorizer_path, 'wb') as fin:
+        pickle.dump(vectorizer, fin)
+
+    with open(model_path, 'wb') as fin:
+        pickle.dump(stacking_model, fin)
     # --------------------------------- #
