@@ -37,7 +37,7 @@ labelstudio:
 	    ds-container:dev labelstudio
 
 notebook:
-	docker run -it -d --rm --network=ds_network \
+	docker run --rm --network=ds_network \
 	    -p 8888:8888 \
 	    -v "${CURRENT_DIR}/src:/srv/src" \
 	    -v "${CURRENT_DIR}/data:/srv/data" \
