@@ -1,0 +1,25 @@
+2023-01-14 14:00:42,052 generated new fontManager
+2023-01-14 14:00:49,448 num rows for train: 5233
+2023-01-14 14:00:49,836 best_score 0.86328
+2023-01-14 14:01:01,407 My score 0.89788
+2023-01-14 14:01:01,407 Delta 0.034602023-01-14 14:14:22,759 table raw_rent_messages created
+
+
+2023-01-14 14:21:40,449 table raw_rent_messages created
+2023-01-14 14:21:40,632 current rows in table: 6542
+2023-01-14 14:21:41,067 App initialized
+2023-01-14 14:21:41,073 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-01-14 14:21:41,073 [33mPress CTRL+C to quit[0m
+
+
+2023-01-14 14:22:10,990 172.18.0.1 - - [14/Jan/2023 14:22:10] "GET /feed/ HTTP/1.1" 200 -
+
+
+2023-01-14 14:22:21,169 172.18.0.1 - - [14/Jan/2023 14:22:21] "GET /messages/5415 HTTP/1.1" 200 -
+2023-01-14 14:22:47,363 172.18.0.1 - - [14/Jan/2023 14:22:47] "GET /messages/1577 HTTP/1.1" 200 -
+2023-01-14 14:22:58,322 172.18.0.1 - - [14/Jan/2023 14:22:58] "GET /messages/5700 HTTP/1.1" 200 -
+2023-01-14 14:23:43,979 172.18.0.1 - - [14/Jan/2023 14:23:43] "GET /messages HTTP/1.1" 200 -
+2023-01-14 14:23:55,789 172.18.0.1 - - [14/Jan/2023 14:23:55] "GET /messages/4510 HTTP/1.1" 200 -

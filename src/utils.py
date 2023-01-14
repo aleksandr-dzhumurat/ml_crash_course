@@ -7,7 +7,7 @@ import pandas as pd
 import yaml
 
 if os.getenv("CONFIG_PATH") is None:
-    config_path = "config.yml"
+    config_path = "/srv/src/config.yml"
 else:
     config_path = os.environ["CONFIG_PATH"]
 
@@ -21,6 +21,7 @@ class Config:
         self.log_file = os.path.join(yml_conf["data_dir"], "service.log")
         self.db_messages_table = "raw_rent_messages"
         self.raw_data_file = os.path.join(yml_conf["data_dir"], "labeled_data_corpus.csv")
+        self.cleared_data_file = os.path.join(yml_conf["data_dir"], "cleared_data_corpus.csv")
         self.model_path = os.path.join(yml_conf["data_dir"], yml_conf["model_file_name"])
         self.tf_idf_params = yml_conf["tf_idf_params"]
 
@@ -87,3 +88,6 @@ class MessagesDB(DataBase):
         res = [int(i[0]) for i in self.run_sql(f"SELECT msg_id FROM {self.conf.db_messages_table} LIMIT 10000")]
 
         return res
+
+    def get_all_messages(self):
+        return self.run_sql(f"SELECT * FROM {self.conf.db_messages_table} LIMIT 10000")
