@@ -12,6 +12,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
+import pickle
+from sklearn.ensemble import RandomForestClassifier, BaggingClassifier, StackingClassifier,AdaBoostClassifier
+from sklearn.svm import SVC
+
 from utils import conf, logger
 
 
@@ -42,8 +46,23 @@ if __name__ == '__main__':
 
     # ------ YOUR CODE HERE ----------- #
     # train better model
+    vectorizer = TfidfVectorizer(max_df=0.5,min_df=11).fit(X_train)
+    X_train_csr = vectorizer.transform(X_train)
+    estimators = [('rf',RandomForestClassifier(n_estimators=20, max_depth=None,min_samples_split=2, random_state=0)),('SVC',SVC(random_state=0))]
+
+    clf = StackingClassifier(estimators=estimators,final_estimator=BaggingClassifier(AdaBoostClassifier(random_state=0),n_estimators=10,random_state=0))
+    
+    model = clf.fit(X_train_csr, y_train)
+    X_test_csr = vectorizer.transform(X_test)
+    y_pred = model.predict(X_test_csr)
+    cur_score_new = f1_score(y_true, y_pred)
+
+    logger.info('My new score %.5f', cur_score_new)
+    logger.info('Difference between models %.5f', cur_score_new - cur_score)
+
 
     # safe better model
 
     model_path = conf.model_path
+    pickle.dump([model,vectorizer], open(model_path,'wb'))
     # --------------------------------- #

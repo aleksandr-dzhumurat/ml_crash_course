@@ -1,0 +1,16 @@
+2023-03-27 15:28:52,282 num rows for train: 5233
+2023-03-27 15:28:53,146 best_score 0.86106
+2023-03-27 15:29:12,847 My new score 0.89552
+2023-03-27 15:29:12,850 Difference between models 0.03447
+2023-03-27 15:29:27,163 table raw_rent_messages created
+2023-03-27 15:29:28,530 data loaded to raw_rent_messages
+2023-03-27 15:29:28,614 current rows in table: 6542
+2023-03-27 15:29:28,621 App initialized
+2023-03-27 15:29:28,630 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.18.0.2:5000
+2023-03-27 15:29:28,632 [33mPress CTRL+C to quit[0m
+2023-03-27 15:29:55,550 172.18.0.1 - - [27/Mar/2023 15:29:55] "GET /messages HTTP/1.1" 200 -
+2023-03-27 15:30:06,037 172.18.0.1 - - [27/Mar/2023 15:30:06] "GET /messages/4815 HTTP/1.1" 200 -
+2023-03-27 15:30:18,238 172.18.0.1 - - [27/Mar/2023 15:30:18] "GET /feed/ HTTP/1.1" 200 -
