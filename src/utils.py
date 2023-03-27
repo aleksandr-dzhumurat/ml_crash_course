@@ -22,6 +22,7 @@ class Config:
         self.db_messages_table = "raw_rent_messages"
         self.raw_data_file = os.path.join(yml_conf["data_dir"], "labeled_data_corpus.csv")
         self.model_path = os.path.join(yml_conf["data_dir"], yml_conf["model_file_name"])
+        self.vector_path = os.path.join(yml_conf["data_dir"], yml_conf["vectorizer_name"])
         self.tf_idf_params = yml_conf["tf_idf_params"]
 
 
@@ -31,7 +32,7 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(message)s",
     handlers=[
-        logging.FileHandler(conf.log_file),
+        #logging.FileHandler(conf.log_file),
         logging.StreamHandler()
     ]
 )

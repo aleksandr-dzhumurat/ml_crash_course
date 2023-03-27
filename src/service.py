@@ -1,8 +1,3 @@
-"""
-----------------------------
-Web-service with API
-----------------------------
-"""
 import os
 import unicodedata
 
@@ -12,21 +7,24 @@ from flask import Flask, render_template, request
 from flask_restful import Resource, Api, reqparse
 
 from src.utils import conf, logger, MessagesDB
+import pickle
+
 
 db = MessagesDB(conf)
 db.init_db()
 
-def load_model(model_path):
+def load_model(vector_path, model_path):
     # ------ YOUR CODE HERE ----------- #
     # load trained model
-
+    vectorizer = pickle.load(open(vector_path, 'rb'))
+    model = pickle.load(open(model_path, 'rb'))
     # --------------------------------- #
-    return None
+    return vectorizer, model
 
 
 app = Flask(__name__)
 api = Api(app)
-model = load_model(conf.model_path)
+vectorizer, model = load_model(conf.vector_path, conf.model_path)
 
 
 @app.route('/messages/<string:identifier>')
@@ -34,8 +32,9 @@ def pridict_labell(identifier):
     msg = db.read_message(msg_id=int(identifier))
     # ------ YOUR CODE HERE ----------- #
     # model predict single label
-
-    predicted_label = 'Error: Model not loaded'
+    
+    msg_csr = vectorizer.transform([msg['txt']])
+    predicted_label = model.predict(msg_csr)[0]
 
     # --------------------------------- #
     return render_template('page.html', id=identifier, txt=msg['txt'], label=predicted_label)
@@ -46,14 +45,19 @@ def feed():
     limit = int(limit)
     # ------ YOUR CODE HERE ----------- #
     # rank all messages and predict
-
-    predicted_label = 'Error: Model not loaded'
-
-    # --------------------------------- #
+    
+    scored_msgs = []
+    msg_ids = db.get_messages_ids()
+    for i in msg_ids:
+        msg = db.read_message(i)
+        msg_csr = vectorizer.transform([msg['txt']])
+        predicted_proba = model.predict(msg_csr)[0]
+        scored_msgs.append((predicted_proba, msg, i))
+    scored_msgs.sort(key=lambda x: x[0])
     recs = [
-        {'msg_id': 1, 'msg_txt': 'example_txt_1'},
-        {'msg_id': 2, 'msg_txt': 'example_txt_2'}
+        {"msg_id": scored_msgs[i][2], "msg_txt": scored_msgs[i][1]["txt"], "msg_predict": scored_msgs[i][0]} for i in range(limit)
     ]
+
     return render_template('feed.html', recs=recs)
 
 class Messages(Resource):
